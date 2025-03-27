@@ -20,6 +20,7 @@
   "homepage": "https://github.com/btpintens/men-stack-session-auth#readme",
   "description": "",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",

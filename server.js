@@ -21,7 +21,7 @@ app.use(methodOverride("_method"));
 app.use(logger('dev'));
 
 app.get("/", (req, res) => {
-    res.render("booyah");
+    res.render("index");
 });
 app.use("/auth", router);
 
