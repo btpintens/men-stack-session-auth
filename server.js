@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import methodOverride from "method-override";
 import logger from "morgan";
 import router from "./controllers/auth.js";
+import session from "express-session";
 
 const app = express();
 
@@ -25,8 +26,17 @@ app.get("/", (req, res) => {
 });
 app.use("/auth", router);
 
+app.use(
+    session({
+      secret: process.env.SESSION_SECRET,
+      resave: false,
+      saveUninitialized: true,
+    })
+  );
+  
 // set view engine
 app.set("view engine", "ejs");
+
 
 mongoose.connection.on("connected", () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}.`);

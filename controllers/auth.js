@@ -44,6 +44,14 @@ const validPassword = bcrypt.compareSync(
     return res.send("Login failed. Please try again.");
   }
   
+  req.session.user = {
+    _id: userInDatabase._id, 
+    username: userInDatabase.username,
+  };
+
+  res.redirect("/");
+  
+});
 
 // validation logic
 
@@ -52,4 +60,3 @@ res.send(`Thanks for signing up ${user.username}`);
 
 export default router;
 
-    });
